@@ -10,6 +10,9 @@ my_fig, my_ax = subplots(1, 1, figsize=(16, 10))
 # plot the countries onto ax
 world.plot(ax = my_ax)
 
+# turn off the visible axes on the map
+my_ax.axis('off')
+
 # save the result
 savefig('./out/1.png')
 print("done!")
