@@ -22,6 +22,8 @@ from matplotlib.pyplot import subplots, savefig
 # create map axis object
 my_fig, my_ax = subplots(1, 1, figsize=(16, 10))
 
+my_ax.set(title="Population Density: Equal Earth Coordinate Reference System")
+
 # add bounding box and graticule layers
 bbox.plot(
     ax = my_ax,
@@ -38,6 +40,11 @@ world.plot(								# plot the world dataset
     linewidth = 0.5,			# specify the line width for the country outlines
     edgecolor = 'gray',		# specify the line colour for the country outlines
     )
+legend = True,
+legend_kwds = {
+    'loc': 'lower left',
+    'title': 'Population Density'
+    }
 
 # plot the graticule
 graticule.plot(
