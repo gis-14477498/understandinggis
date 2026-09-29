@@ -6,8 +6,18 @@ bbox = read_file("../../data/natural-earth/ne_110m_wgs84_bounding_box.shp")
 
 ea_proj="+proj=eqearth +lon_0=0 +datum=WGS84 +units=m +no_defs"
 
-print(world.head())
+# reproject all three layers to equal earth
+world = world.to_crs(ea_proj)
+graticule = graticule.to_crs(ea_proj)
+bbox = bbox.to_crs(ea_proj)
+
+# calculate population density
+world['pop_density'] = world['POP_EST'] / (world.area / 1000000)
+
 print(world.columns)
+
+print(world.head())
+
 from matplotlib.pyplot import subplots, savefig
 # create map axis object
 my_fig, my_ax = subplots(1, 1, figsize=(16, 10))
