@@ -39,12 +39,13 @@ world.plot(								# plot the world dataset
     scheme = 'quantiles',	# specify how the colour map will be mapped to the values in POP_EST
     linewidth = 0.5,			# specify the line width for the country outlines
     edgecolor = 'gray',		# specify the line colour for the country outlines
+    legend = True,
+    legend_kwds = {
+        'loc': 'lower left',
+        'title': 'Population Density'
+        }
     )
-legend = True,
-legend_kwds = {
-    'loc': 'lower left',
-    'title': 'Population Density'
-    }
+
 
 # plot the graticule
 graticule.plot(
