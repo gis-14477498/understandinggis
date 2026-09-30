@@ -27,10 +27,7 @@ world['GDP_per_Capita'] = world['GDP_MD_EST'] * 1000000 / world['POP_EST']
 # create map axis object
 my_fig, my_ax = subplots(1, 1, figsize=(16, 10))
 
-# add map title
-my_ax.set(title="GDP per Capita: Equal Earth Coordinate Reference System")
-
-# add bounding box and graticule layers
+# plot the bounding box
 bbox.plot(
     ax = my_ax,
     color = 'lightgrey',
@@ -41,8 +38,8 @@ bbox.plot(
 world.plot(								# plot the world dataset
     ax = my_ax,						# specify the axis object to draw it to
     column = 'GDP_per_Capita',  # specify the column used to style the dataset
-    cmap = 'OrRd',				# specify the colour map used to style the dataset based on POP_EST
-    scheme = 'quantiles',	# specify how the colour map will be mapped to the values in POP_EST
+    cmap = 'OrRd',				# specify the colour map used to style the dataset based on GDP_per_Capita
+    scheme = 'quantiles',	# specify how the colour map will be mapped to the values in GDP_per_Capita
     linewidth = 0.5,			# specify the line width for the country outlines
     edgecolor = 'gray',		# specify the line colour for the country outlines
     legend = True,
@@ -51,7 +48,6 @@ world.plot(								# plot the world dataset
         'title': 'GDP per Capita'
         }
     )
-
 
 # plot the graticule
 graticule.plot(
@@ -62,6 +58,9 @@ graticule.plot(
 
 # turn off the visible axes on the map
 my_ax.axis('off')
+
+# add map title
+my_ax.set(title="GDP per Capita: Equal Earth Coordinate Reference System")
 
 # save the result
 savefig('./out/3.png')
