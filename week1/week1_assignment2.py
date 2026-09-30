@@ -22,7 +22,7 @@ graticule = graticule.to_crs(ea_proj)
 bbox = bbox.to_crs(ea_proj)
 
 # calculate GDP per Capita
-world['GDP_per_Capiita'] = world['GDP_MD_EST'] / (world.area * 1000000)
+world['GDP_per_Capita'] = world['GDP_MD_EST'] * 1000000 / world['POP_EST']
 
 # create map axis object
 my_fig, my_ax = subplots(1, 1, figsize=(16, 10))
