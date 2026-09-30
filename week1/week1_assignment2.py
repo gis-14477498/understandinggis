@@ -40,7 +40,7 @@ bbox.plot(
 # plot the countries
 world.plot(								# plot the world dataset
     ax = my_ax,						# specify the axis object to draw it to
-    column = 'GDP_per_Capiita',  # specify the column used to style the dataset
+    column = 'GDP_per_Capita',  # specify the column used to style the dataset
     cmap = 'OrRd',				# specify the colour map used to style the dataset based on POP_EST
     scheme = 'quantiles',	# specify how the colour map will be mapped to the values in POP_EST
     linewidth = 0.5,			# specify the line width for the country outlines
@@ -48,7 +48,7 @@ world.plot(								# plot the world dataset
     legend = True,
     legend_kwds = {
         'loc': 'lower left',
-        'title': 'GDP per Capiita'
+        'title': 'GDP per Capita'
         }
     )
 
