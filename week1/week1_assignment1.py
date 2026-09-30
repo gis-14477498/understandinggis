@@ -32,7 +32,7 @@ my_ax.set(title="Population Density: Equal Earth Coordinate Reference System")
 # add bounding box and graticule layers
 bbox.plot(
     ax = my_ax,
-    color = 'lightgrey',
+    color = 'lightblue',
     linewidth = 0,
     )
 
@@ -40,7 +40,7 @@ bbox.plot(
 world.plot(								# plot the world dataset
     ax = my_ax,						# specify the axis object to draw it to
     column = 'pop_density',  # specify the column used to style the dataset
-    cmap = 'YIGnBu',				# specify the colour map used to style the dataset based on POP_EST
+    cmap = 'PuRd',				# specify the colour map used to style the dataset based on POP_EST
     scheme = 'quantiles',	# specify how the colour map will be mapped to the values in POP_EST
     linewidth = 0.5,			# specify the line width for the country outlines
     edgecolor = 'gray',		# specify the line colour for the country outlines
@@ -63,5 +63,5 @@ graticule.plot(
 my_ax.axis('off')
 
 # save the result
-savefig('./out/1.png')
+savefig('./out/2.png')
 print("done!")
