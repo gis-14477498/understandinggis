@@ -15,3 +15,13 @@ mex_col = mex.geometry
 print(type(mex_col))
 mex_geom = mex_col.iloc[0]
 print(type(mex_geom))
+
+border = usa_geom.intersection(mex_geom) # calculate the intersection of the geometry objects
+
+from matplotlib.pyplot import subplots, savefig, title
+my_fig, my_ax = subplots(1, 1, figsize=(16, 10)) # create map axis object
+my_ax.axis('off') # remove axes
+GeoSeries(border).plot(
+  ax = my_ax
+	)            # plot the border
+savefig('./out/first-border.png')# save the image
