@@ -41,3 +41,6 @@ precise_matches = possible_matches.loc[possible_matches.within(polygon)]
 
 # how many rows are left now?
 print(f"Filtered wells: {len(precise_matches.index)}")
+
+# rebuild the spatial index using the new, smaller dataset
+idx = precise_matches
