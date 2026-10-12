@@ -43,4 +43,6 @@ precise_matches = possible_matches.loc[possible_matches.within(polygon)]
 print(f"Filtered wells: {len(precise_matches.index)}")
 
 # rebuild the spatial index using the new, smaller dataset
-idx = precise_matches
+geoms = precise_matches.geometry.to_list()
+idx = STRtree(geoms)
+
