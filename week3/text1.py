@@ -11,4 +11,6 @@ print(pop_points.estimate_utm_crs(datum_name='Arc 1960'))
 print(water_points.estimate_utm_crs(datum_name='Arc 1960'))
 print(gulu_district.estimate_utm_crs(datum_name='Arc 1960'))
 
+print(f"population points: {len(pop_points)}")
+print(f"Initial wells: {len(water_points)}")
 
