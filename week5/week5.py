@@ -10,10 +10,22 @@ def compute_offset(origin, distance, direction):
 
 from geopandas import read_file
 world = read_file("../../data/natural-earth/ne_10m_admin_0_countries.shp")
-iceland = world.loc[world.ISO_A3 == "ISL"]
+iceland = world[world.ISO_A3 == "ISL"]
 land_cover = read_file("../../data/iceland/gis_osm_natural_a_free_1.shp")
-ice = land_cover.loc[land_cover.fclass == "glacier"]
+ice = land_cover[land_cover.fclass == "glacier"]
 print (ice.head())
 # get the bounds of the country
 minx, miny, maxx, maxy = iceland.total_bounds
 print(iceland.total_bounds)
+
+from geopandas import Geod
+# set the geographical proj string and ellipsoid (should be the same)
+geo_string = "+proj=longlat +datum=WGS84 +no_defs"
+g = Geod(ellps='WGS84')
+
+# create a list of dictionaries for the projected CRS' to evaluate for distortion
+projections = [
+    {'name':"Web Mercator", 'description':"Global Conformal",   'proj':""},
+    {'name':"Eckert IV",    'description':"Global Equal Area",  'proj':""},
+    {'name':"", 'description':"Local Equal Area",   'proj':""}
+]
