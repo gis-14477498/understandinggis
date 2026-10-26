@@ -25,7 +25,7 @@ g = Geod(ellps='WGS84')
 
 # create a list of dictionaries for the projected CRS' to evaluate for distortion
 projections = [
-    {'name':"Web Mercator", 'description':"Global Conformal",   'proj':""},
-    {'name':"Eckert IV",    'description':"Global Equal Area",  'proj':""},
-    {'name':"", 'description':"Local Equal Area",   'proj':""}
+    {'name':"Web Mercator", 'description':"Global Conformal",   'proj':"+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs"},
+    {'name':"Eckert IV",    'description':"Global Equal Area",  'proj':"+proj=eck4 +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +type=crs"},
+    {'name':"Iceland Lambert Azimuthal Equal Area", 'description':"Local Equal Area",   'proj':"+proj=laea +lon_0=-18.984375 +lat_0=64.6305525 +datum=WGS84 +units=m +no_defs"}
 ]
