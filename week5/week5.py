@@ -18,7 +18,7 @@ print (ice.head())
 minx, miny, maxx, maxy = iceland.total_bounds
 print(iceland.total_bounds)
 
-from geopandas import Geod
+from pyproj import Geod, CRS, Transformer
 # set the geographical proj string and ellipsoid (should be the same)
 geo_string = "+proj=longlat +datum=WGS84 +no_defs"
 g = Geod(ellps='WGS84')
@@ -29,3 +29,9 @@ projections = [
     {'name':"Eckert IV",    'description':"Global Equal Area",  'proj':"+proj=eck4 +lon_0=0 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs +type=crs"},
     {'name':"Iceland Lambert Azimuthal Equal Area", 'description':"Local Equal Area",   'proj':"+proj=laea +lon_0=-18.984375 +lat_0=64.6305525 +datum=WGS84 +units=m +no_defs"}
 ]
+# loop through each CRS
+for ax_num, projection in enumerate(projections):
+    print(ax_num, projection)
+    
+# initialise a PyProj Transformer to transform coordinates
+transformer = Transformer.from_crs(CRS.from_proj4(geo_string), CRS.from_proj4(projection['proj']), always_xy=True)
