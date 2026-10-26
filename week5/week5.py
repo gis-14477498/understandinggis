@@ -4,8 +4,8 @@ def compute_offset(origin, distance, direction):
     """
     Compute the location of a point at a given distance and direction from a specified location using trigonometry
     """
-    offset_x = origin[0] +  (cos(radians(direction))) * distance	# COMPLETE THIS LINE
-    offset_y = origin[1] + (sin(radians(direction))) * distance	# COMPLETE THIS LINE 
+    offset_x = origin[0] + (cos(radians(direction))) * distance  # COMPLETE THIS LINE
+    offset_y = origin[1] + (sin(radians(direction))) * distance  # COMPLETE THIS LINE 
     return (offset_x, offset_y)
 
 # this code tests whether your function works correctly
