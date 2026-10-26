@@ -13,3 +13,7 @@ origin = (345678, 456789)
 destination = compute_offset(origin, 1011, 123)	# move 1011m in a direction of 123 degrees 
 
 print("CORRECT!!" if (int(destination[0]), int(destination[1])) == (345127, 457636) else f"INCORRECT!! Error: {(int(destination[0])-345127, int(destination[1])-457636)}")
+
+from geopandas import read_file
+world = read_file("../../data/natural-earth/ne_10m_admin_0_countries.shp")
+iceland = world.loc(world.ISO_A3 == "ISL")
