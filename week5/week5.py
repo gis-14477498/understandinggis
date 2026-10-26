@@ -8,12 +8,12 @@ def compute_offset(origin, distance, direction):
     offset_y = origin[1] + (sin(radians(direction))) * distance  # COMPLETE THIS LINE 
     return (offset_x, offset_y)
 
-# this code tests whether your function works correctly
-origin = (345678, 456789)
-destination = compute_offset(origin, 1011, 123)	# move 1011m in a direction of 123 degrees 
-
-print("CORRECT!!" if (int(destination[0]), int(destination[1])) == (345127, 457636) else f"INCORRECT!! Error: {(int(destination[0])-345127, int(destination[1])-457636)}")
-
 from geopandas import read_file
 world = read_file("../../data/natural-earth/ne_10m_admin_0_countries.shp")
-iceland = world.loc(world.ISO_A3 == "ISL")
+iceland = world.loc[world.ISO_A3 == "ISL"]
+land_cover = read_file("../../data/iceland/gis_osm_natural_a_free_1.shp")
+ice = land_cover.loc[land_cover.fclass == "glacier"]
+print (ice.head())
+# get the bounds of the country
+minx, miny, maxx, maxy = iceland.total_bounds
+print(iceland.total_bounds)
