@@ -32,6 +32,6 @@ projections = [
 # loop through each CRS
 for ax_num, projection in enumerate(projections):
     print(ax_num, projection)
-    
-# initialise a PyProj Transformer to transform coordinates
-transformer = Transformer.from_crs(CRS.from_proj4(geo_string), CRS.from_proj4(projection['proj']), always_xy=True)
+   
+    # initialise a PyProj Transformer to transform coordinates
+    transformer = Transformer.from_crs(CRS.from_proj4(geo_string), CRS.from_proj4(projection['proj']), always_xy=True)
